@@ -1,0 +1,17 @@
+{
+  "name": "botron-interview-programming-problem",
+  "authors": [
+    "DiyanTonchev <diyantonchev@gmail.com>"
+  ],
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "~1.5.3",
+    "angular-loader": "~1.5.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

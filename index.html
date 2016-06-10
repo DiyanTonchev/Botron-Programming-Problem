@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Botron Interview - Programming Problem</title>
+    <!--  AUI Core -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui.min.js"></script>
+    <link rel="stylesheet" href="//aui-cdn.atlassian.com/aui-adg/5.9.19/css/aui.min.css" media="all">
+
+    <!-- AUI Experimental components -->
+    <link rel="stylesheet" href="//aui-cdn.atlassian.com/aui-adg/5.9.19/css/aui-experimental.min.css" media="all">
+    <script src="//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui-experimental.min.js"></script>
+
+    <!-- AUI Datepicker and Soy templates -->
+    <script src="//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui-datepicker.min.js"></script>
+    <script src="//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui-soy.min.js"></script>
+</head>
+
+<body>
+    <main class="container">
+        <div data-ng-view></div>
+    </main>
+    <!-- inject-vendor:js -->
+    <script src="app/bower_components/angular/angular.min.js"></script>
+    <script src="app/bower_components/angular-route/angular-route.min.js"></script>
+    <!--endinject-->
+
+    <!-- inject:js -->
+    <!-- Bootstrapping -->
+    <script src="app/js/app.module.js"></script>
+
+    <!--controllers-->
+    <script src="app/js/main.controller.js"></script>
+
+    <!--services-->
+    <script src="app/js/dataservice.js"></script>
+    <!--endinject-->
+</body>
+
+</html>
