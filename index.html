@@ -19,8 +19,7 @@
 </head>
 
 <body>
-    <main class="container">
-        
+    <main class="container" data-ng-controller="MainController as vm">
     </main>
     <!-- inject-vendor:js -->
     <script src="app/bower_components/angular/angular.min.js"></script>
@@ -30,6 +29,10 @@
     <!-- inject:js -->
     <!-- Bootstrapping -->
     <script src="app/js/app.module.js"></script>
+    <script src="app/js/app.config.js"></script>
+
+    <!--constants-->
+    <script src="app/js/constants.js"></script>
 
     <!--controllers-->
     <script src="app/js/main.controller.js"></script>
