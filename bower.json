@@ -10,7 +10,8 @@
     "angular-loader": "~1.5.3",
     "angular-sanitize": "^1.5.6",
     "bower": "*",
-    "install": "^1.0.4"
+    "install": "^1.0.4",
+    "bg-splitter": "*"
   },
   "ignore": [
     "**/.*",

@@ -3,7 +3,8 @@
 
     angular.module('app', [
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',
+        'bgDirectives'
     ]);
 
 })();

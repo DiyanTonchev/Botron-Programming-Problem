@@ -38,6 +38,7 @@
         }
 
         function selectIssue(issue) {
+            console.log(issue);
             var key = issue.key + '?fields=description&expand=renderedFields';
             dataservice.getIssue(key).then(function (data) {
                 vm.selectedIssue = issue;
