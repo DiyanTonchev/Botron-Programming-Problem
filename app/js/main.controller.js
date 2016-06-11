@@ -18,25 +18,30 @@
         activate();
 
         function activate() {
-            // var promises = [loadIssues()];
-            // $q.all(promises);
-            loadIssues();
+            loadIssues().then(function (data) {
+                var selectedIssue = vm.issues[0] || null;
+                if (selectedIssue) {
+                    selectIssue(selectedIssue);
+                }
+            });
         }
 
         function loadIssues() {
             var query = QUERIES.recentlyUpdatedBugIssues +
                 '&startAt=' + vm.paginationParams.startAt +
                 '&maxResults=' + vm.paginationParams.maxResults;
+
             return dataservice.getIssuesBy(query).then(function (data) {
                 vm.issues = data.issues;
-                vm.selectedIssue = vm.issues[0] || null;
                 return vm.issues;
             });
         }
 
         function selectIssue(issue) {
-            console.log(issue);
-            vm.selectedIssue = issue;
+            var key = issue.key + '?fields=description&expand=renderedFields';
+            dataservice.getIssue(key).then(function (data) {
+                vm.selectedIssue = data;
+            });
         }
     }
 

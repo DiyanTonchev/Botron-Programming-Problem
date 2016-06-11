@@ -8,7 +8,8 @@
     dataservice.$inject = ['$http', '$q', 'JIRA_REST_API_URL'];
     function dataservice($http, $q, JIRA_REST_API_URL) {
         var service = {
-            getIssuesBy: getIssuesBy
+            getIssuesBy: getIssuesBy,
+            getIssue: getIssue
         };
 
         return service;
@@ -18,11 +19,21 @@
                 method: 'GET',
                 url: JIRA_REST_API_URL + query,
             };
-            
+
             return $http(request)
                 .then(function success(response) {
                     return response.data;
                 }).catch(function error(err_response) {
+                    return $q.reject(err_response);
+                });
+        }
+
+        function getIssue(key) {
+            var url = JIRA_REST_API_URL + 'issue/' + key;
+            return $http.get(url)
+                .then(function success(response) {
+                    return response.data;
+                }).catch(function (err_response) {
                     return $q.reject(err_response);
                 });
         }
