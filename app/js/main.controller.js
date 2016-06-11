@@ -4,8 +4,8 @@
     angular.module('app')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['$q', 'dataservice', 'QUERIES'];
-    function MainController($q, dataservice, QUERIES) {
+    MainController.$inject = ['$q', '$sce', 'dataservice', 'QUERIES'];
+    function MainController($q, $sce, dataservice, QUERIES) {
         var vm = this;
 
         vm.paginationParams = {
@@ -40,7 +40,8 @@
         function selectIssue(issue) {
             var key = issue.key + '?fields=description&expand=renderedFields';
             dataservice.getIssue(key).then(function (data) {
-                vm.selectedIssue = data;
+                vm.selectedIssue = issue;
+                vm.issueDescription = $sce.trustAsHtml(data.renderedFields.description);
             });
         }
     }

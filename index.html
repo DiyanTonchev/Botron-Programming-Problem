@@ -85,8 +85,7 @@
                         </div>
                     </div>
                 </header>
-                <div class="description-container">
-                    {{vm.selectedIssue.renderedFields.description}}
+                <div class="description-container" data-ng-bind-html="vm.issueDescription">
                 </div>
             </div>
         </div>
@@ -94,12 +93,12 @@
     <!-- inject-vendor:js -->
     <script src="app/bower_components/angular/angular.min.js"></script>
     <script src="app/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="app/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <!--endinject-->
 
     <!-- inject:js -->
     <!-- Bootstrapping -->
     <script src="app/js/app.module.js"></script>
-    <!--<script src="app/js/app.config.js"></script>-->
 
     <!--constants-->
     <script src="app/js/constants.js"></script>
@@ -109,10 +108,6 @@
 
     <!--controllers-->
     <script src="app/js/main.controller.js"></script>
-    <!--<script src="app/js/issue.controller.js"></script>-->
-
-    <!--directives-->
-    <!--<script src="app/js/select-issue.directive.js"></script>-->
     <!--endinject-->
 </body>
 
