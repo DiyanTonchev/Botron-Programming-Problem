@@ -18,7 +18,7 @@
                 method: 'GET',
                 url: JIRA_REST_API_URL + query,
             };
-
+            
             return $http(request)
                 .then(function success(response) {
                     return response.data;

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Botron Interview - Programming Problem</title>
+    <link rel="stylesheet" href="app/styles/app.css">
+
     <!--  AUI Core -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui.min.js"></script>
@@ -19,8 +21,76 @@
 </head>
 
 <body>
-    <main class="container" data-ng-controller="MainController as vm">
-    </main>
+    <section class="container" data-ng-controller="MainController as vm">
+        <div class="summary-filter-wrapper">
+            <div class="field-group">
+                <label for="summary">Summary<span class="aui-icon"></span></label>
+                <input class="text" type="text" id="summary" data-ng-model="vm.summaryFilter" title="summary">
+                <div class="description">Filter issues by summary filed</div>
+            </div>
+        </div>
+        <nav class="aui-navgroup aui-navgroup-vertical issues-link-nav">
+            <div class="aui-navgroup-inner">
+                <ul class="aui-nav">
+                    <!--<li class="aui-nav-selected"><a href="#">Selected foo</a></li>-->
+                    <li class="issue" data-ng-repeat="issue in vm.issues | filter: {fields : {summary : vm.summaryFilter}}">
+                        <a href="#" data-ng-click="vm.selectIssue(issue)">
+                            <div class="issue-key">
+                                <span>
+                                    <img data-ng-src="{{issue.fields.issuetype.iconUrl}}" title="{{issue.fields.issuetype.description}}" alt="{{issue.fields.issuetype.name}}">
+                                    {{issue.key}}
+                                </span>
+                            </div>
+                            <div class="issue-summary">
+                                {{issue.fields.summary}}
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <ol class="aui-nav aui-nav-pagination">
+            <li class="aui-nav-first"><a href="#">First</a></li>
+            <li class="aui-nav-previous"><a href="#">Prev</a></li>
+            <li><a href="http://example.com/">1</a></li>
+            <li class="aui-nav-selected">2</li>
+            <li><a href="http://example.com/">3</a></li>
+            <li class="aui-nav-truncation"><a href="http://example.com/" id="pagination-truncation">&hellip;</a></li>
+            <li><a href="http://example.com/">998</a></li>
+            <li><a href="http://example.com/">999</a></li>
+            <li class="aui-nav-next"><a href="#">Next</a></li>
+            <li class="aui-nav-last"><a href="#">Last</a></li>
+        </ol>
+        <div class="aui-item details-panel">
+            <div class="issue-container">
+                <header class="aui-page-header">
+                    <div class="aui-page-header-inner">
+                        <div class="aui-page-header-image">
+                            <span class="aui-avatar aui-avatar-large aui-avatar-project">
+                                <span class="aui-avatar-inner">
+                                    <img id="project-avatar" alt="Uploaded image for project: 'Team Calendars for Confluence'" src="https://jira.atlassian.com/secure/projectavatar?pid=14110&amp;avatarId=37849">
+                                </span>
+                            </span>
+                        </div>
+                        <div class="aui-page-header-main">
+                            <ol class="aui-nav aui-nav-breadcrumbs __skate">
+                                <li>
+                                    <a id="project-name-val" href="https://jira.atlassian.com/projects/{{vm.selectedIssue.fields.project.key}}/issues/{{vm.selectedIssue.key}}">{{vm.selectedIssue.fields.project.name}}</a>
+                                </li>
+                                <li>
+                                    <a id="key-val" class="issue-link" data-issue-key="TEAMCAL-3901" href="https://jira.atlassian.com/browse/{{vm.selectedIssue.key}}">{{vm.selectedIssue.key}}</a>
+                                </li>
+                            </ol>
+                            <h1 id="issueSummary">{{vm.selectedIssue.fields.summary}}</h1>
+                        </div>
+                    </div>
+                </header>
+                <div class="description-container">
+                    {{vm.selectedIssue.fields.description}}
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- inject-vendor:js -->
     <script src="app/bower_components/angular/angular.min.js"></script>
     <script src="app/bower_components/angular-route/angular-route.min.js"></script>
@@ -29,16 +99,20 @@
     <!-- inject:js -->
     <!-- Bootstrapping -->
     <script src="app/js/app.module.js"></script>
-    <script src="app/js/app.config.js"></script>
+    <!--<script src="app/js/app.config.js"></script>-->
 
     <!--constants-->
     <script src="app/js/constants.js"></script>
 
-    <!--controllers-->
-    <script src="app/js/main.controller.js"></script>
-
     <!--services-->
     <script src="app/js/dataservice.js"></script>
+
+    <!--controllers-->
+    <script src="app/js/main.controller.js"></script>
+    <!--<script src="app/js/issue.controller.js"></script>-->
+
+    <!--directives-->
+    <!--<script src="app/js/select-issue.directive.js"></script>-->
     <!--endinject-->
 </body>
 

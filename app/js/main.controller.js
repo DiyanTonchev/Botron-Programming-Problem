@@ -8,17 +8,35 @@
     function MainController($q, dataservice, QUERIES) {
         var vm = this;
 
+        vm.paginationParams = {
+            startAt: 0,
+            maxResults: 20
+        };
+
+        vm.selectIssue = selectIssue;
+
         activate();
 
         function activate() {
-            var promises = [getIssues()];
-            $q.all(promises);
+            // var promises = [loadIssues()];
+            // $q.all(promises);
+            loadIssues();
         }
 
-        function getIssues() {
-            return dataservice.getIssuesBy(QUERIES.recentlyUpdatedIssues).then(function (data) {
-                console.log(data);
+        function loadIssues() {
+            var query = QUERIES.recentlyUpdatedBugIssues +
+                '&startAt=' + vm.paginationParams.startAt +
+                '&maxResults=' + vm.paginationParams.maxResults;
+            return dataservice.getIssuesBy(query).then(function (data) {
+                vm.issues = data.issues;
+                vm.selectedIssue = vm.issues[0] || null;
+                return vm.issues;
             });
+        }
+
+        function selectIssue(issue) {
+            console.log(issue);
+            vm.selectedIssue = issue;
         }
     }
 
