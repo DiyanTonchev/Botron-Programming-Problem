@@ -23,8 +23,8 @@
             return $http(request)
                 .then(function success(response) {
                     return response.data;
-                }).catch(function error(err_response) {
-                    return $q.reject(err_response);
+                }).catch(function error(errResponse) {
+                    return $q.reject(errResponse);
                 });
         }
 
@@ -33,8 +33,8 @@
             return $http.get(url)
                 .then(function success(response) {
                     return response.data;
-                }).catch(function (err_response) {
-                    return $q.reject(err_response);
+                }).catch(function (errResponse) {
+                    return $q.reject(errResponse);
                 });
         }
     }

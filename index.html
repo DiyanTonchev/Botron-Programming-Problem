@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-ng-app="app">
 
 <head>
@@ -6,7 +6,7 @@
     <title>Botron Interview - Programming Problem</title>
     <link rel="stylesheet" href="app/css/app.css">
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/bower_components/bg-splitter/css/style.css"></link>
+    <link rel="stylesheet" href="app/bower_components/bg-splitter/css/style.css">
     <link rel="stylesheet" href="app/bower_components/angular-loading-bar/src/loading-bar.css">
 
     <!--  AUI Core -->
@@ -41,8 +41,8 @@
                                     <a href="#" data-ng-click="vm.selectIssue(issue)">
                                         <div class="issue-key">
                                             <span data-ng-cloak>
-                                                 <img data-ng-src="{{issue.fields.issuetype.iconUrl}}" title="{{issue.fields.issuetype.description}}" alt="{{issue.fields.issuetype.name}}">
-                                                 {{issue.key}}
+                                                <img data-ng-src="{{issue.fields.issuetype.iconUrl}}" title="{{issue.fields.issuetype.description}}" alt="{{issue.fields.issuetype.name}}">
+                                                {{issue.key}}
                                             </span>
                                         </div>
                                         <div class="issue-summary" data-ng-cloak>
@@ -55,7 +55,7 @@
                     </nav>
                     <div class="pagination-container">
                         <uib-pagination total-items="vm.paginationParams.totalItems" data-ng-model="vm.paginationParams.startAt" items-per-page="vm.paginationParams.maxResults"
-                            data-ng-change="vm.loadIssues()" max-size="4" class="pagination-sm" boundary-links="true"></uib-pagination>
+                                        data-ng-change="vm.loadIssues()" max-size="4" class="pagination-sm" boundary-links="true"></uib-pagination>
                     </div>
                 </div>
             </bg-pane>
@@ -66,9 +66,9 @@
                             <div class="aui-page-header-inner">
                                 <div class="aui-page-header-image">
                                     <span class="aui-avatar aui-avatar-large aui-avatar-project">
-                                <span class="aui-avatar-inner">
-                                    <img id="project-avatar" alt="" src="https://jira.atlassian.com/secure/projectavatar?pid=14110&amp;avatarId=37849">
-                                </span>
+                                        <span class="aui-avatar-inner">
+                                            <img id="project-avatar" alt="" src="https://jira.atlassian.com/secure/projectavatar?pid=14110&amp;avatarId=37849">
+                                        </span>
                                     </span>
                                 </div>
                                 <div class="aui-page-header-main">
@@ -94,25 +94,25 @@
                                                 <strong class="name">Type:</strong>
                                                 <span id="type-val" class="value">
                                                     <img alt="" ng-src="{{vm.selectedIssue.fields.issuetype.iconUrl}}" title="{{vm.selectedIssue.fields.issuetype.description}}" width="20" height="20">
-                                                    {{vm.selectedIssue.fields.issuetype.name}}         
-                                                 </span>
+                                                    {{vm.selectedIssue.fields.issuetype.name}}
+                                                </span>
                                             </div>
                                         </li>
                                         <li class="item">
                                             <div class="wrap">
                                                 <strong class="name">Status:</strong>
-                                                <span id="status-val" class="value">
-                                                <img ng-src="{{vm.selectedIssue.fields.status.iconUrl}}" title="{{vm.selectedIssue.fields.status.description}}" alt="" width="20" height="20">
-                                                {{vm.selectedIssue.fields.status.name}}
+                                                <span class="value">
+                                                    <img ng-src="{{vm.selectedIssue.fields.status.iconUrl}}" title="{{vm.selectedIssue.fields.status.description}}" alt="" width="20" height="20">
+                                                    {{vm.selectedIssue.fields.status.name}}
                                                 </span>
                                             </div>
                                         </li>
                                         <li class="item" data-ng-if="vm.selectedIssue.fields.priority != null">
                                             <div class="wrap">
                                                 <strong class="name">Priority:</strong>
-                                                <span id="status-val" class="value">
-                                                <img ng-src="{{vm.selectedIssue.fields.priority.iconUrl}}" title="{{vm.selectedIssue.fields.priority.name}}" alt="{{vm.selectedIssue.fields.priority.name}}" width="20" height="20">
-                                                {{vm.selectedIssue.fields.priority.name}}
+                                                <span class="value">
+                                                    <img ng-src="{{vm.selectedIssue.fields.priority.iconUrl}}" title="{{vm.selectedIssue.fields.priority.name}}" alt="{{vm.selectedIssue.fields.priority.name}}" width="20" height="20">
+                                                    {{vm.selectedIssue.fields.priority.name}}
                                                 </span>
                                             </div>
                                         </li>
@@ -149,7 +149,6 @@
     <script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="app/bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <!--endinject-->
-
     <!-- inject:js -->
     <!-- Bootstrapping -->
     <script src="app/js/app.module.js"></script>
