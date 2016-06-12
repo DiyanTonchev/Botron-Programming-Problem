@@ -32,9 +32,10 @@
                         <div class="aui-navgroup-inner">
                             <ul class="aui-nav">
                                 <li class="field-group">
+                                    <span class="aui-icon aui-icon-small aui-iconfont-edit"></span>
                                     <label for="summary">Summary<span class="aui-icon"></span></label>
                                     <input class="text" type="text" id="summary" data-ng-model="vm.summaryFilter" title="summary">
-                                    <div class="description">Filter issues by summary filed</div>
+                                    <!--<div class="description">Filter issues by summary filed</div>-->
                                 </li>
                                 <li class="issue" data-ng-repeat="issue in vm.issues | filter: {fields : {summary : vm.summaryFilter}}">
                                     <a href="#" data-ng-click="vm.selectIssue(issue)">
@@ -52,8 +53,10 @@
                             </ul>
                         </div>
                     </nav>
-                    <uib-pagination total-items="vm.paginationParams.totalItems" data-ng-model="vm.paginationParams.startAt" items-per-page="vm.paginationParams.maxResults"
-                        data-ng-change="vm.loadIssues()" max-size="4" class="pagination-sm" boundary-links="true"></uib-pagination>
+                    <div class="pagination-container">
+                        <uib-pagination total-items="vm.paginationParams.totalItems" data-ng-model="vm.paginationParams.startAt" items-per-page="vm.paginationParams.maxResults"
+                            data-ng-change="vm.loadIssues()" max-size="4" class="pagination-sm" boundary-links="true"></uib-pagination>
+                    </div>
                 </div>
             </bg-pane>
             <bg-pane min-size="150">

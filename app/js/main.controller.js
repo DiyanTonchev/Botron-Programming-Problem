@@ -6,6 +6,7 @@
 
     MainController.$inject = ['$q', '$sce', 'dataservice', 'QUERIES'];
     function MainController($q, $sce, dataservice, QUERIES) {
+        /*jshint validthis: true */
         var vm = this;
 
         vm.paginationParams = {

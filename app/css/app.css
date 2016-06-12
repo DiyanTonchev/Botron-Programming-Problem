@@ -5,6 +5,7 @@ body {
 
 section {
     width: 80%;
+    margin-top: 10px;
 }
 
 .issues-link-nav, .details-panel {
@@ -15,6 +16,7 @@ section {
     overflow-y: scroll;
 }
 
-.aui-icon:hover {
-    cursor: pointer;
+.pagination-container {
+    width: 60%;
+    margin-left: 20px;
 }
