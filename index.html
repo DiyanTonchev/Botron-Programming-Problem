@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Botron Interview - Programming Problem</title>
-    <link rel="stylesheet" href="app/styles/app.css">
+    <link rel="stylesheet" href="app/css/app.css">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/bower_components/bg-splitter/css/style.css"></link>
+    <link rel="stylesheet" href="app/bower_components/angular-loading-bar/src/loading-bar.css">
 
     <!--  AUI Core -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -25,45 +27,34 @@
     <section class="container" data-ng-controller="MainController as vm">
         <bg-splitter orientation="horizontal">
             <bg-pane min-size="100">
-                <div class="summary-filter-wrapper">
-                    <div class="field-group">
-                        <label for="summary">Summary<span class="aui-icon"></span></label>
-                        <input class="text" type="text" id="summary" data-ng-model="vm.summaryFilter" title="summary">
-                        <div class="description">Filter issues by summary filed</div>
-                    </div>
+                <div class="aui-item list-panel">
+                    <nav class="aui-navgroup aui-navgroup-vertical issues-link-nav">
+                        <div class="aui-navgroup-inner">
+                            <ul class="aui-nav">
+                                <li class="field-group">
+                                    <label for="summary">Summary<span class="aui-icon"></span></label>
+                                    <input class="text" type="text" id="summary" data-ng-model="vm.summaryFilter" title="summary">
+                                    <div class="description">Filter issues by summary filed</div>
+                                </li>
+                                <li class="issue" data-ng-repeat="issue in vm.issues | filter: {fields : {summary : vm.summaryFilter}}">
+                                    <a href="#" data-ng-click="vm.selectIssue(issue)">
+                                        <div class="issue-key">
+                                            <span data-ng-cloak>
+                                                 <img data-ng-src="{{issue.fields.issuetype.iconUrl}}" title="{{issue.fields.issuetype.description}}" alt="{{issue.fields.issuetype.name}}">
+                                                 {{issue.key}}
+                                            </span>
+                                        </div>
+                                        <div class="issue-summary" data-ng-cloak>
+                                            {{issue.fields.summary}}
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <uib-pagination total-items="vm.paginationParams.totalItems" data-ng-model="vm.paginationParams.startAt" items-per-page="vm.paginationParams.maxResults"
+                        data-ng-change="vm.loadIssues()" max-size="4" class="pagination-sm" boundary-links="true"></uib-pagination>
                 </div>
-                <nav class="aui-navgroup aui-navgroup-vertical issues-link-nav">
-                    <div class="aui-navgroup-inner">
-                        <ul class="aui-nav">
-                            <!--<li class="aui-nav-selected"><a href="#">Selected foo</a></li>-->
-                            <li class="issue" data-ng-repeat="issue in vm.issues | filter: {fields : {summary : vm.summaryFilter}}">
-                                <a href="#" data-ng-click="vm.selectIssue(issue)">
-                                    <div class="issue-key">
-                                        <span>
-                                    <img data-ng-src="{{issue.fields.issuetype.iconUrl}}" title="{{issue.fields.issuetype.description}}" alt="{{issue.fields.issuetype.name}}">
-                                    {{issue.key}}
-                                </span>
-                                    </div>
-                                    <div class="issue-summary">
-                                        {{issue.fields.summary}}
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <ol class="aui-nav aui-nav-pagination">
-                    <li class="aui-nav-first"><a href="#">First</a></li>
-                    <li class="aui-nav-previous"><a href="#">Prev</a></li>
-                    <li><a href="http://example.com/">1</a></li>
-                    <li class="aui-nav-selected">2</li>
-                    <li><a href="http://example.com/">3</a></li>
-                    <li class="aui-nav-truncation"><a href="http://example.com/" id="pagination-truncation">&hellip;</a></li>
-                    <li><a href="http://example.com/">998</a></li>
-                    <li><a href="http://example.com/">999</a></li>
-                    <li class="aui-nav-next"><a href="#">Next</a></li>
-                    <li class="aui-nav-last"><a href="#">Last</a></li>
-                </ol>
             </bg-pane>
             <bg-pane min-size="150">
                 <div class="aui-item details-panel">
@@ -150,9 +141,10 @@
     </section>
     <!-- inject-vendor:js -->
     <script src="app/bower_components/angular/angular.min.js"></script>
-    <script src="app/bower_components/angular-route/angular-route.min.js"></script>
     <script src="app/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="app/bower_components/bg-splitter/js/splitter.js"></script>
+    <script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="app/bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <!--endinject-->
 
     <!-- inject:js -->

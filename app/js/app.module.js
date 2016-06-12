@@ -2,9 +2,10 @@
     'use strict';
 
     angular.module('app', [
-        'ngRoute',
         'ngSanitize',
-        'bgDirectives'
+        'ui.bootstrap',
+        'bgDirectives',
+        'angular-loading-bar'
     ]);
 
 })();
