@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sun Jun 12 2016 23:02:54 GMT+0300 (FLE Daylight Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -10,11 +10,16 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/angular/angular.min.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.min.js',
+      'app/bower_components/bg-splitter/js/splitter.js',
+      'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'app/bower_components/angular-loading-bar/src/loading-bar.js',
       'app/js/*.js',
       'test/*spec.js'
     ],

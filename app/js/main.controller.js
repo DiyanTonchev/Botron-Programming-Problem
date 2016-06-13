@@ -11,7 +11,7 @@
 
         vm.paginationParams = {
             startAt: 1,
-            maxResults: 50
+            maxResults: 20
         };
 
         vm.loadIssues = loadIssues;
