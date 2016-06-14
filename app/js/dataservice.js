@@ -17,7 +17,7 @@
         function getIssuesBy(query) {
             var request = {
                 method: 'GET',
-                url: JIRA_REST_API_URL + query,
+                url: JIRA_REST_API_URL + query
             };
 
             return $http(request)

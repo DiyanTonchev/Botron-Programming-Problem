@@ -20,6 +20,7 @@ module.exports = function (config) {
       'app/bower_components/bg-splitter/js/splitter.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'app/bower_components/angular-loading-bar/src/loading-bar.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
       'app/js/*.js',
       'test/*spec.js'
     ],
